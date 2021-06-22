@@ -2,7 +2,7 @@ import json
 
 import praw
 
-keys = json.loads("keys.json")
+keys = json.loads(open("keys.json").read())
 
 reddit = praw.Reddit(
 	client_id = keys["client_id"],
@@ -11,3 +11,5 @@ reddit = praw.Reddit(
 	user_agent = keys["user_agent"],
 	username= keys["username"]
 )
+
+print(reddit.user.me())
